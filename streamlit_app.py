@@ -52,9 +52,12 @@ loaded_image_paths,loaded_class_labels, loaded_database_features = load_features
 
 # st.write('loaded features')
 def get_image(d):
-    url = d.loc[0,'img1']
-    r = requests.get(url)
-    return BytesIO(r.content)
+    try:
+        url = d.loc[0,'img1']
+        r = requests.get(url)
+        return BytesIO(r.content)
+    except:
+        return "https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-media-1677509740"
 
 def find_similar_images_ann(query_features, database_features,class_labels, image_paths,df, top_k=5, search_k=-1):
     # Build AnnoyIndex for approximate nearest neighbor search
