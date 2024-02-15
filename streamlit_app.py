@@ -171,7 +171,7 @@ if test_image is not None:
     query_features = extract_features(model, query_image_path)
     # st.write(query_features)
 
-    find_similar_images_ann(query_features, loaded_database_features, loaded_class_labels, loaded_image_paths,df, top_k=50)
+    find_similar_images_ann(query_features, loaded_database_features, loaded_class_labels, loaded_image_paths,df, top_k=10)
     # st.write(output)
 else :
     st.write('waiting for test image....')
